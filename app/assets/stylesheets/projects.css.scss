@@ -1,0 +1,53 @@
+
+.glyphicon-calendar{
+  font-size:3em;
+}
+
+.my-container{
+   border: 1px solid black;
+   border-radius: 3px;
+   margin-bottom: 20px;
+}
+
+.label-red{
+  float:left;
+  position: relative;
+  background-color: red;
+  width: 2em;
+  height: 2em;
+  border-radius: 3px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.project-title{
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.progress{
+  margin-top: 10px;
+  background-color: black;
+}
+
+.edit-project{
+  position:relative;
+  bottom: 2em;
+  float:right;
+  font-size: 1.5em;
+  color: black;
+}
+.correcting-height{
+  height:8em;
+}
+
+.check{
+  float:right;
+}
+
+.task-container{
+  margin-top:20px;
+}
+
+.check-icon{
+  font-size: 2em;
+}

@@ -1,0 +1,27 @@
+<% if task.erased %>
+  <% row_class = 'hidden'%>
+<% end %>
+
+<% if task.erased == nil && task.checked %>
+  <% row_class = 'row-disabled success' %>
+  <% icon_class = 'glyphicon glyphicon-ok check-icon' %>
+<%elsif task.erased == nil && task.checked == nil %>
+  <% row_class = '' %>
+  <% icon_class = 'glyphicon glyphicon-unchecked check-icon ' %>
+<% end %>
+
+<tr class = "<%= row_class  %>" id = 'task-row' >
+  <td>
+    <%= link_to project_check_task_path(project, task, checked: true), method: 'patch' do %>
+      <span class= "<%=icon_class  %>"></span>
+    <% end %>
+  </td>
+  <td><%= task.task_name %></td>
+  <td><%= task.created_at.strftime("%b %d, %Y")%></td>
+  <td><%= task.deadline.strftime("%b %d, %Y")%></td>
+  <td>
+    <%= link_to project_erase_task_path(project, task, erase: true), method: 'patch' do  %>
+        <span class = "glyphicon glyphicon-trash"></span>
+    <% end %>
+  </td>
+</tr>

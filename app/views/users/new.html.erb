@@ -1,0 +1,21 @@
+
+<div class="container">
+
+  <h1>Here is the form to create new Users</h1>
+  <div class="row">
+    <%= render 'shared/errors', obj: @user %>
+    <div class="well col-md-5">
+      <%=form_for @user do |f| %>
+        <div class="form-group">
+          <%=f.label :user_name %>
+          <%=f.text_field :user_name, class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%=f.label :email %>
+          <%=f.text_field :email, class: "form-control" %>
+        </div>
+        <%=f.submit "Register", class: 'btn btn-success' %>
+      <%end%>
+    </div>
+  </div>
+</div>
