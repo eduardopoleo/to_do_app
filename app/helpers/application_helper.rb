@@ -13,4 +13,14 @@ module ApplicationHelper
         flash_type.to_s
     end
   end
+
+  def bp_color(progress)
+    if progress > 50
+      bp_color = 'success'
+    elsif progress == 50
+      bp_color = 'warning'
+    else
+      bp_color = 'danger'
+    end
+  end
 end

@@ -37,11 +37,7 @@
               <p><%= project.description%></p>
             </div> <!-- end of column 5 -->
             <div class="col-md-6 correcting-height">
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                  40%
-                </div>
-              </div>
+              <%= render 'shared/pb', project: project  %>
               <p>(7) uncompleted tasks</p>
                 <p>(5) pending deadlines</p>
                 <%= link_to edit_project_path(project), {class: "edit-project"} do %>

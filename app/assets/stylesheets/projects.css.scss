@@ -29,6 +29,10 @@
   background-color: black;
 }
 
+.pb-percentage{
+  color:black;
+}
+
 .edit-project{
   position:relative;
   bottom: 2em;
@@ -50,4 +54,8 @@
 
 .check-icon{
   font-size: 2em;
+}
+
+.disable{
+  pointer-events: none;
 }

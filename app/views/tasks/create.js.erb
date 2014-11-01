@@ -1,1 +1,7 @@
+// When creating a new task:
+// Adds the new task to the task table
 $('#task-table').append("<%= j render 'task', task: @task, project: @project%>");
+// Resets fields for the create form
+$('#new_task')[0].reset();
+//Updates progress bar
+<%= render 'shared/update_progress', project: @project %>

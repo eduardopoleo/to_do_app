@@ -25,13 +25,22 @@ class TasksController < ApplicationController
   def erase
     @task.erased = params[:erase]
     @task.save
-    redirect_to project_path(@project)
+
+    respond_to do |format|
+      format.html{redirect_to project_path(@project)}
+      format.js
+    end
   end
 
   def check
     @task.checked = params[:checked]
     @task.save
-    redirect_to project_path(@project)
+    
+    respond_to do |format|
+      format.html{redirect_to project_path(@project)}
+      format.js
+    end
+
   end
 
   private
