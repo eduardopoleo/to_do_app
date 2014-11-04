@@ -1,51 +1,16 @@
 
 <!--Remember to include container in the application  and erase from here-->
+<h1 class = 'dash-board-title'>Projects Dashboard</h1>
+
 <div class="row">
   <div class = "col-md-6">
-    <%= link_to new_project_path do %>
-      <button class='btn btn-primary'>
-        <span class="glyphicon glyphicon-plus"></span> New Project
-      </button>
-    <%end%>
-  </div>
-
-  <div class="col-md-3">
-    Sort by:
-    <div class="btn-group">
-      <button type="button" class="btn btn-default">Left</button>
-      <button type="button" class="btn btn-default">Middle</button>
-      <button type="button" class="btn btn-default">Right</button>
-    </div>
-  </div>
-
-  <div class="col-md-3">
-    <span class = "lol glyphicon glyphicon-calendar"></span>
+        <i id ='new-project' class="fa fa-plus-square-o"> </i> <span id='new-project'></span>
   </div>
 </div> <!-- end of row -->
 
+<%= render 'form', obj: @project, display: 'hide-form', is_remote: true, action: "Create!"%>
+<div id = 'project-table' >
   <% @projects.each do |project| %>
-  <div class="row">
-    <div class="col-md-9">
-      <div class="my-container">
-        <div class = "label-red"></div> <!-- task label -->
-          <div class="row">
-            <div class="col-md-5 box">
-              <%= link_to project_path(project) do %>
-                <h3 class="project-title"><%=project.title%></h3>
-              <% end %>
-              <small class ="created-at"><%=project.created_at.strftime("%b %d, %Y")%></small>
-              <p><%= project.description%></p>
-            </div> <!-- end of column 5 -->
-            <div class="col-md-6 correcting-height">
-              <%= render 'shared/pb', project: project  %>
-              <p>(7) uncompleted tasks</p>
-                <p>(5) pending deadlines</p>
-                <%= link_to edit_project_path(project), {class: "edit-project"} do %>
-                  <span class = 'glyphicon glyphicon-edit'></span>
-                <%end%>
-            </div> <!-- end of column 4 -->
-          </div>
-      </div>
-    </div>
-  </div>
-<%end%>
+    <%= render 'project', project: project  %>
+  <%end%>
+</div>

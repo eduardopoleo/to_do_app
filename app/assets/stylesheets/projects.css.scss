@@ -1,27 +1,97 @@
 
-.glyphicon-calendar{
-  font-size:3em;
-}
-
 .my-container{
-   border: 1px solid black;
-   border-radius: 3px;
-   margin-bottom: 20px;
+  position:relative;
+  margin-bottom: 20px;
+  border:1px solid #E3E8E7;
+  box-shadow: 5px 5px 8px #888888;
 }
 
-.label-red{
-  float:left;
-  position: relative;
-  background-color: red;
-  width: 2em;
-  height: 2em;
-  border-radius: 3px;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+.dash-board-title{
+  font-family: Ubuntu;
+  text-align: center;
 }
-.project-title{
+
+#new-project{
+  cursor:pointer;
+  font-size: 3em;
+}
+
+
+/*project form style*/
+.radio-label{
+  padding-right:15px;
+}
+
+.project-form-container{
+  border:1px solid #E3E8E7;
+  box-shadow: 5px 5px 8px #888888;
+}
+
+.hide-form{
+  display:none;
+}
+/*end of project form style*/
+
+/*Styles for the labels colors and margins*/
+.category{
+  float:left;
+  position: absolute;
+  top:0;
+  bottom:0;
+  width: 2em;
+}
+
+.red{
+  @extend .category;
+  background-color: #E62B2B;
+}
+
+.blue{
+  @extend .category;
+  background-color: #3366FF;
+}
+.green{
+  @extend .category;
+  background-color: #0DE042;
+}
+.yellow{
+  @extend .category;
+  background-color: #FFDA47;
+}
+
+.brown{
+  @extend .category;
+  background-color: #663300;
+}
+/*End of categories styling*/
+
+/*Style for the projects blocks in index*/
+.link-project-title:hover{
+  text-decoration: none;
+  
+}
+
+.project-title-index{
   margin-top: 4px;
   margin-bottom: 4px;
+  margin-left: 2em;
+  font-family: Ubuntu;
+
+  color: black;
+}
+
+.project-title-index:hover{
+  color:#5A5A5C;
+}
+
+.created-at-index{
+  margin-left: 4em;
+  color:#919194;
+}
+
+.project-description-index{
+  margin-left: 3.5em;
+  margin-top: 1em;
 }
 
 .progress{
@@ -34,15 +104,27 @@
 }
 
 .edit-project{
-  position:relative;
-  bottom: 2em;
+  position:absolute;
+  bottom:1em ;
+  right:3em;
   float:right;
-  font-size: 1.5em;
+  font-size: 1em;
   color: black;
+}
+.erase-project{
+  @extend .edit-project;
+  right:1em;
 }
 .correcting-height{
   height:8em;
 }
+.pending-tasks{
+  font-family: ubuntu;
+}
+/*End of style of project block*/
+
+
+/*Style for project show page*/
 
 .check{
   float:right;
@@ -59,3 +141,46 @@
 .disable{
   pointer-events: none;
 }
+
+.project-title{
+  @extend .project-title-index;
+  margin-left: 0;
+}
+
+.created-at{
+  @extend .created-at-index;
+  margin-left: 0;
+}
+
+.project-description{
+  @extend .project-description-index;
+  margin-left: 0;
+}
+#checkbox-label{
+  float:right;
+  position: relative;
+  top: 1.2em;
+  font-size: 1.3em;
+}
+#hide-completed{
+  @extend #checkbox-label;
+  transform: scale(1.2);
+  position: relative;
+  right:3px;
+}
+
+#date{
+  height: 25px;
+  font-size: 14px;
+  line-height: 14px;
+}
+#task_description {
+  height: 25px;
+  font-size: 14px;
+  line-height: 14px;
+}
+#new-task{
+  @extend #new-project
+}
+
+/*end of show page styles*/

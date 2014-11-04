@@ -1,8 +1,13 @@
 class ProjectsController < ApplicationController
 
-  before_action :set_project, only: [:show, :edit, :update]
+  before_action :set_project, only: [:show, :edit, :update, :erase]
+  before_action :current_user
+  before_action :require_user
+  before_action :require_same_user, only: [:show, :edit, :update]
+
   def index
-    @projects = Project.all
+    @project = Project.new
+    @projects = @current_user.projects
   end
 
   def new
@@ -15,11 +20,20 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(set_params)
+    @project.user_id = @current_user.id
+    @project.save
 
-    if @project.save
-      redirect_to projects_path
-    else
-      render :new
+    respond_to do |format|
+
+      format.html do 
+        if @project.valid?
+          flash[:success] = "Your task has been successfully created"
+          redirect_to projects_path
+        else
+          render "index"
+        end
+      end
+      format.js
     end
   end
 
@@ -36,6 +50,17 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def erase
+    @project.erased = true
+    @project.save
+
+    respond_to do |format|
+      format.html{redirect_to projects_path}
+      format.js
+    end
+    
+  end
+
   private
 
   def set_project
@@ -43,7 +68,14 @@ class ProjectsController < ApplicationController
   end
 
   def set_params
-    params.require(:project).permit(:title, :description)
+    params.require(:project).permit(:title, :description, :category)
+  end
+
+  def require_same_user
+    if logged_in? && current_user != @project.user
+      flash[:error] = 'Your are not allowed to do that!'
+      redirect_to projects_path
+    end
   end
 
 end

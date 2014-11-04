@@ -1,7 +1,16 @@
 // When creating a new task:
-// Adds the new task to the task table
-$('#task-table').append("<%= j render 'task', task: @task, project: @project%>");
-// Resets fields for the create form
-$('#new_task')[0].reset();
-//Updates progress bar
-<%= render 'shared/update_progress', project: @project %>
+
+<%if !@task.valid? %>
+  alert(" Your task must have a description of at least 3 characters long!")
+<%else%>
+  // Adds the new task to the task table
+  $('#task-table').prepend("<%= j render 'task', task: @task, project: @project%>");
+  // Resets fields for the create form
+  $('#new_task')[0].reset();
+  //Updates progress bar
+  <%= render 'shared/update_progress', project: @project %>
+  // update link in the navigation
+  <%= render 'shared/update_navbar'%>
+<%end%>
+
+

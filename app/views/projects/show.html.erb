@@ -1,21 +1,29 @@
 
 <div class="row"> 
   <div class="col-md-9"> <!-- extend the rows to length of 9 -->
+    
     <div class="row">
       <div class="col-md-5">
         <h3 class="project-title"><%=@project.title%></h3>
-        <small class ="created-at"><%=@project.created_at.strftime("%b %d, %Y")%></small>
+        <small class ="created-at"> Created at <%=@project.created_at.strftime("%b %d, %Y")%></small>
+        <p class='project-description'><%= @project.description %></p>
       </div> <!-- end of column that contains title -->
-      <div class="col-md-6">
+
+      <div class="col-md-6 col-md-offset-1">
         <%= render 'shared/pb', project: @project%>
+        <form action="">
+          <span id = 'checkbox-label'>Hide completed tasks </span> <input type="checkbox" id = "hide-completed" name="hide tasks" value="hiding">
+        </form>
+        <i id ='new-task' class="fa fa-plus-square-o"> </i> <span id='new-task'></span>
+        
+        <%= render 'tasks/form' %> 
+        
       </div><!-- end of col that contains progress bar -->
-    </div> <!-- end of first inner row (title & progress)  -->
-    <div class="row">
-      <div class="col-md-11"><%=@project.description%></div>
-    </div>
+    </div> <!-- end of header row (title & progress)  -->
+    
+
+    <hr>
     <%= render 'shared/errors', obj: @task %>
-    <h3>Add new task</h3>
-    <%= render 'tasks/create_task' %> 
     
     <table class="table">
       <thead>

@@ -5,6 +5,6 @@ $("#checkicon-task-<%=@task.id%>").attr('class', 'glyphicon glyphicon-ok check-i
 //Change row to class to "success" 
 $("#row-task-<%=@task.id%>").attr('class', 'task-completed success');
 //Updates progress bar 
-//$("#progressbar-<%=@project.id%>").attr('style', 'width: <%=@project.progress%>%')
-//$("#progressbar-<%=@project.id%>").text('<%=@project.progress%>%')
 <%= render 'shared/update_progress', project: @project %>
+
+<%= render 'shared/update_navbar'%>

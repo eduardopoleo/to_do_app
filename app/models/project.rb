@@ -1,6 +1,5 @@
 class Project < ActiveRecord::Base
   belongs_to :user
-  belongs_to :category
   has_many :tasks
 
   validates :title, presence: true, length: {minimum: 3}
@@ -11,6 +10,10 @@ class Project < ActiveRecord::Base
     else
       self.tasks.where(checked: true, erased: nil).size*100/self.tasks.where(erased: nil).size
     end
+  end
+
+  def pending_tasks
+    self.tasks.where(checked: nil, erased: nil).size
   end
 
 end

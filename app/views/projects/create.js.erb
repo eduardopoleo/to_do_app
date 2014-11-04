@@ -1,0 +1,8 @@
+<%if !@project.valid? %>
+  alert(" Your project must have a title of at least 3 characters long!")
+<%else%>
+  $('#project-table').prepend("<%= j render 'project', project: @project%>");
+  $('#new_project')[0].reset();
+  $('#create-project-form').slideUp();
+  <%= render 'shared/update_navbar'%>
+<%end%>

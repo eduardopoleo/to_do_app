@@ -1,14 +1,20 @@
 <% if task.erased %>
   <% row_class = 'hidden'%>
+<%elsif task.checked%>
+  <% row_class = 'success task-completed' %>
+<% elsif task.deadline &&  !task.checked && (task.deadline.to_date - Date.today.to_date).to_i < 2%>
+    <% row_class = 'danger' %>
+<%else%>
+  <% row_class = '' %>
 <% end %>
 
-<% if !task.erased && task.checked %>
-  <% row_class = 'success task-completed' %>
+<% if task.checked  %>
   <% icon_class = 'glyphicon glyphicon-ok check-icon disable' %>
-<%elsif !task.erased && !task.checked %>
-  <% row_class = '' %>
+<% else %>
   <% icon_class = 'glyphicon glyphicon-unchecked check-icon ' %>
 <% end %>
+
+
 
 <tr class = "<%= row_class  %>" id = 'row-task-<%=task.id%>' >
   <td>
@@ -16,9 +22,9 @@
       <span id="checkicon-task-<%=task.id%>" class= "<%=icon_class  %>"></span>
     <% end %>
   </td>
-  <td><%= task.task_name %></td>
+  <td><%= task.description %></td>
   <td><%= task.created_at.strftime("%b %d, %Y")%></td>
-  <td><%= task.deadline.strftime("%b %d, %Y")%></td>
+  <td><%= task.deadline.strftime("%b %d, %Y") if task.deadline%></td>
   <td>
     <%= link_to project_erase_task_path(project, task, erase: true), method: 'patch', remote: true do  %>
         <span class = "glyphicon glyphicon-trash"></span>
