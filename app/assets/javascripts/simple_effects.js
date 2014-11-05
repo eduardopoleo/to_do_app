@@ -17,9 +17,7 @@ $(function() {
   $('#new-task').click(function(){
     $('#create-task-form').slideToggle();
   });
-
-
-  
+  // Info for the date picker
   $('#date').datepicker({ 
     showAnim: "fadeIn",
     minDate: 0,

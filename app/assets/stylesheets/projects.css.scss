@@ -182,5 +182,24 @@
 #new-task{
   @extend #new-project
 }
-
 /*end of show page styles*/
+
+/*navigation*/
+#nav-projects{
+  font-size: 1.5em;
+  color:black;
+  font-weight: bold
+}
+#nav-deadlines{
+  @extend #nav-projects;
+  color:#E60000;
+}
+.front-icon{
+  font-size: 7em;
+  text-align: center;
+  position:relative;
+  left: 0.2em;
+}
+
+
+/*end of navigation*/

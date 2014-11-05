@@ -4,5 +4,5 @@
   $('#project-table').prepend("<%= j render 'project', project: @project%>");
   $('#new_project')[0].reset();
   $('#create-project-form').slideUp();
-  <%= render 'shared/update_navbar'%>
+  <%= render 'shared/update_navbar', user: current_user%>
 <%end%>

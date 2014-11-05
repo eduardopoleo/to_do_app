@@ -1,2 +1,2 @@
-$('#total-number-of-projects').html('Total projects: <%=current_user.projects_total%>')
-$('#pending-tasks').html('Total pending tasks: <%= current_user.pending_tasks_total%>')
+$('#total-number-of-projects').html("Projects: <span id = 'nav-projects'><%=user.projects_total%> </span>")
+$('#total-number-of-deadlines').html("Upcoming Deadlines: <span id='nav-deadlines'><%= user.upcoming_deadlines.size%></span>")

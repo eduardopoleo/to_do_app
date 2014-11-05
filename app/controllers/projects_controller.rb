@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 
   def index
     @project = Project.new
-    @projects = @current_user.projects
+    @projects = @current_user.projects.order(created_at: :desc)
   end
 
   def new

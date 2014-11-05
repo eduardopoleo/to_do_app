@@ -7,4 +7,4 @@ $("#row-task-<%=@task.id%>").attr('class', 'task-completed success');
 //Updates progress bar 
 <%= render 'shared/update_progress', project: @project %>
 
-<%= render 'shared/update_navbar'%>
+<%= render 'shared/update_navbar', user: current_user%>

@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  include Deadline
   belongs_to :user
   has_many :tasks
 
@@ -10,10 +11,6 @@ class Project < ActiveRecord::Base
     else
       self.tasks.where(checked: true, erased: nil).size*100/self.tasks.where(erased: nil).size
     end
-  end
-
-  def pending_tasks
-    self.tasks.where(checked: nil, erased: nil).size
   end
 
 end
