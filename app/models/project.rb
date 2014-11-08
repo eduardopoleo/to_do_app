@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   has_many :tasks
 
   validates :title, presence: true, length: {minimum: 3}
+  validates :description, length: {maximum: 400}
 
   def progress
     if self.tasks.where(erased: nil).size == 0

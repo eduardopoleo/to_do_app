@@ -1,5 +1,5 @@
-<div id="create-task-form" class="hide-form">
-  <%=form_for [@project, @task], class: "task-form", remote: true do |f| %>
+<div id="create-task-form" class="<%=display%>">
+  <%=form_for [project, task], class: "task-form", remote: is_remote do |f| %>
     <div class="form-group">
       <%=f.label :description  %>
       <%=f.text_field :description, class: "form-control"%>
@@ -8,6 +8,6 @@
       <%=f.label :deadline%>
       <%=f.text_field :deadline, class: "form-control", id: "date"%>
     </div>
-    <%=f.submit "Add task", class: 'btn btn-info' %>
+    <%=f.submit action, class: 'btn btn-info' %>
   <%end%> 
 </div>

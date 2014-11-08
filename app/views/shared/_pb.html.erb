@@ -1,4 +1,8 @@
 <div class="progress">
   <div id = "progressbar-<%=project.id%>"class="progress-bar progress-bar-<%=bp_color(project.progress)%>" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%=project.progress%>%">  
+  <% if show_progress %>
+    <p style="color:black; font-weight:bold;"><%= project.progress%> %</p> 
+  <% end %>
   </div>
+
 </div>

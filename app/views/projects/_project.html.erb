@@ -17,7 +17,7 @@
             
           </div> <!-- end of column 6 -->
           <div class="col-md-6 correcting-height">
-            <%= render 'shared/pb', project: project  %>
+            <%= render 'shared/pb', project: project, show_progress: false  %>
             <h4 class='pending-tasks'><%= project.upcoming_deadlines.size%> Upcoming deadlines </h4>
             <h4 class='pending-tasks'><%= project.pending_tasks_total%> Pending tasks </h4>
           </div> <!-- end of column 6-->

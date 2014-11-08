@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :set_project
   before_action :current_user
   before_action :require_user
-  before_action :set_task, only: [:erase, :check]
+  before_action :set_task, only: [:erase, :check, :edit, :update]
 
   def create
     @task = @project.tasks.build(set_params)
@@ -43,8 +43,23 @@ class TasksController < ApplicationController
       format.html{redirect_to project_path(@project)}
       format.js
     end
-
   end
+  
+
+  def edit
+    
+  end
+
+  def update
+    if @task.update(set_params)
+      flash[:success] = "Your task has been successfully updated"
+      redirect_to project_path(@project)
+    else
+      render 'edit'
+    end
+  end
+
+
 
   private
   def set_params

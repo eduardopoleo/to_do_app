@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   patch 'project/:id/erase', to: 'projects#erase', as: 'erase_project'
   
   resources :projects, except:[:destroy] do
-    post 'tasks/', to: 'tasks#create'
-    patch '/tasks/:id', to: 'tasks#erase', as: 'erase_task'
+    resources :tasks, only: [:create, :edit, :update]
+    patch '/tasks/:id/erase', to: 'tasks#erase', as: 'erase_task'
     patch '/tasks/:id/check', to: 'tasks#check', as: 'check_task'
   end
 

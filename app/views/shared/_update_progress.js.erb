@@ -1,4 +1,4 @@
 $("#progressbar-<%=project.id%>").attr('style', 'width: <%=project.progress%>%');
 $("#progressbar-<%=project.id%>").attr('class', 'progress-bar progress-bar-<%=bp_color(project.progress)%>');
-$("#progressbar-<%=project.id%>").html("<span class = 'pb-percentage'><%=project.progress%> %</span>");
+$("#progressbar-<%=project.id%>").html("<p style='color:black; font-weight:bold;'><%= project.progress%> %</p>");
 

@@ -169,12 +169,12 @@
   margin-left: 0;
 }
 #checkbox-label{
-  float:right;
+  float:left;
   position: relative;
   top: 1.2em;
   font-size: 1.3em;
 }
-#hide-completed{
+#checkbox-hide{
   @extend #checkbox-label;
   transform: scale(1.2);
   position: relative;
@@ -193,6 +193,12 @@
 }
 #new-task{
   @extend #new-project
+}
+
+.backto-projects-link{
+  float:left;
+  position:relative;
+  top:50px;
 }
 /*end of show page styles*/
 

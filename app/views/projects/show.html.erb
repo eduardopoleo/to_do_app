@@ -1,16 +1,18 @@
+<% projects_link = link_to("Projects", projects_path)  %>
+<%=render 'shared/title', title:"#{projects_link} &raquo #{@project.title}".html_safe %>
 <div class="row">
   <div class=" col-md-3 affix">
-    <h3 class="project-title"><%=@project.title%></h3>
     <small class ="created-at"> Created at <%=@project.created_at.strftime("%b %d, %Y")%></small>
     <p class='project-description'><%= @project.description %></p>
-
-    <%= render 'shared/pb', project: @project%>
-    <form action="">
-      <span id = 'checkbox-label'>Hide completed tasks </span> <input type="checkbox" id = "hide-completed" name="hide tasks" value="hiding">
-    </form>
-    <i id ='new-task' class="fa fa-plus-square-o"> </i> <span id='new-task'></span>
+    <%= render 'shared/pb', project: @project, show_progress: true%>
     
-    <%= render 'tasks/form' %> 
+    <h3 class="project-title">Add Task</h3>
+    
+    <%= render 'tasks/form', project: @project, task: @task, is_remote: true, action: "Add Task" %> 
+    <form action="">
+      <input type="checkbox" id = "checkbox-hide" name="hide tasks" value="hiding">
+      <span id = 'checkbox-label'>Hide completed tasks </span> 
+    </form>
   </div> <!-- end of header row (title & progress)  -->
   
   <div class = "col-md-8 col-md-offset-4">

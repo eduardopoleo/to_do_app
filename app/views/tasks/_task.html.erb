@@ -16,7 +16,7 @@
 
 
 
-<tr class = "<%= row_class  %>" id = 'row-task-<%=task.id%>' >
+<tr class = "<%= row_class  %>" id = 'row-task-<%=task.id%>'>
   <td>
     <%= link_to project_check_task_path(project, task, checked: true), method: 'patch', remote: true do %>
       <span id="checkicon-task-<%=task.id%>" class= "<%=icon_class  %>"></span>
@@ -26,7 +26,7 @@
   <td><%= task.created_at.strftime("%b %d, %Y")%></td>
   <td><%= task.deadline.strftime("%b %d, %Y") if task.deadline%></td>
   <td>
-    <%= link_to project_erase_task_path(project, task, erase: true), method: 'patch', remote: true do  %>
+    <%= link_to edit_project_task_path(project, task)  do  %>
         <span class = "glyphicon glyphicon-edit"></span>
     <% end %>
     <%= link_to project_erase_task_path(project, task, erase: true), method: 'patch', remote: true do  %>

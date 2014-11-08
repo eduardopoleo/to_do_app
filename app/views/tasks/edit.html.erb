@@ -1,0 +1,7 @@
+
+<%= render 'shared/errors', obj: @task  %>
+<div class="row">
+  <div class="col-md-4 well">
+    <%= render 'form',  action: "Update Task", is_remote: false, task: @task, project: @project%>
+  </div>
+</div>
