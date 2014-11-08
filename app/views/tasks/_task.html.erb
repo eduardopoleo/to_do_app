@@ -2,7 +2,7 @@
   <% row_class = 'hidden'%>
 <%elsif task.checked%>
   <% row_class = 'success task-completed' %>
-<% elsif task.deadline &&  !task.checked && (task.deadline.to_date - Date.today.to_date).to_i < 2%>
+<% elsif task.deadline &&  !task.checked && task.has_upcoming_deadline? %>
     <% row_class = 'danger' %>
 <%else%>
   <% row_class = '' %>
@@ -27,7 +27,10 @@
   <td><%= task.deadline.strftime("%b %d, %Y") if task.deadline%></td>
   <td>
     <%= link_to project_erase_task_path(project, task, erase: true), method: 'patch', remote: true do  %>
-        <span class = "glyphicon glyphicon-trash"></span>
+        <span class = "glyphicon glyphicon-edit"></span>
+    <% end %>
+    <%= link_to project_erase_task_path(project, task, erase: true), method: 'patch', remote: true do  %>
+        <span class = "glyphicon glyphicon-trash trash-icon"></span>
     <% end %>
   </td>
 </tr>

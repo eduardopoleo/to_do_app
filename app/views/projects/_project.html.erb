@@ -1,26 +1,34 @@
 <div id="project-<%=project.id%>"class="row <%= 'hidden' if project.erased == true  %> ">
-  <div class="col-md-9">
     <div class="my-container ">
        <div class = "<%= project.category%>"></div> 
         <div class="row">
-          <div class="col-md-5 box">
+          <div class="col-md-5  box">
             <%= link_to project_path(project), class: "link-project-title" do %>
               <h3 class="project-title-index"><%=project.title%></h3>
             <% end %>
             <small class ="created-at-index">Created at <%=project.created_at.strftime("%b %d, %Y")%></small>
             <p class = "project-description-index"><%= project.description%></p>
-          </div> <!-- end of column 5 -->
+            
+              <%=link_to project_path(project) do %>
+                <button class = "btn link-to-tasks btn-default ">
+                    &raquo View tasks
+                </button>
+              <%end%>
+            
+          </div> <!-- end of column 6 -->
           <div class="col-md-6 correcting-height">
             <%= render 'shared/pb', project: project  %>
-            <h4 class='pending-tasks'><%= project.upcoming_deadlines.size%> Pending tasks</h4>
-          </div> <!-- end of column 4 -->
+            <h4 class='pending-tasks'><%= project.upcoming_deadlines.size%> Upcoming deadlines </h4>
+            <h4 class='pending-tasks'><%= project.pending_tasks_total%> Pending tasks </h4>
+          </div> <!-- end of column 6-->
           <%= link_to edit_project_path(project), class: "edit-project" do %>
             <span class = 'glyphicon glyphicon-edit'></span>
           <%end%>
           <%= link_to erase_project_path(project), method: 'patch', class: "erase-project", remote: true do %>
             <span class = 'glyphicon glyphicon-trash'></span>
           <%end%>
+
+          <p class = "project-progress"><%= project.progress%> %</p> 
         </div>
     </div>
-  </div>
 </div>

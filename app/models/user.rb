@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include Deadline
+  include GeneralInfo
 
   has_many :projects
   has_many :tasks

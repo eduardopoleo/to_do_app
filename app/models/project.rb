@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  include Deadline
+  include GeneralInfo
   belongs_to :user
   has_many :tasks
 

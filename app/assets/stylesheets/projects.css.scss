@@ -70,6 +70,10 @@
   text-decoration: none;
   
 }
+.link-to-tasks{
+  margin-left: 10%;
+  margin-bottom: 4%;
+}
 
 .project-title-index{
   margin-top: 4px;
@@ -96,7 +100,6 @@
 
 .progress{
   margin-top: 10px;
-  background-color: black;
 }
 
 .pb-percentage{
@@ -121,11 +124,20 @@
 .pending-tasks{
   font-family: ubuntu;
 }
+
+.project-progress{
+  font-size: 2em;
+  font-weight: bold;
+}
 /*End of style of project block*/
 
 
 /*Style for project show page*/
-
+.trash-icon{
+  position:relative;
+  left:30%;
+  margin-right: -6px;
+}
 .check{
   float:right;
 }

@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
 
     if @project.update(set_params)
       flash[:success] = "Your project have been successfully updated"
-      redirect_to project_path(@project)
+      redirect_to projects_path
     else
       render 'edit'
     end
