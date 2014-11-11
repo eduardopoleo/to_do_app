@@ -6,6 +6,7 @@
     <div class="col-md-4 col-sm-4 col-xs-12 ">
       <small class ="created-at"> Created at <%=@project.created_at.strftime("%b %d, %Y")%></small>
       <p class='project-description'><%= @project.description %></p>
+      
       <div class="progress">
         <div id = "progressbar-<%=@project.id%>" class="progress-bar progress-bar-<%=bp_color(@project.progress)%>" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%=@project.progress%>%">  
             <p id="progress-percentage" style="color:black; font-weight:bold;"><%= @project.progress%> %</p> 

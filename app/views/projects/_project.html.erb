@@ -3,6 +3,7 @@
        <div class = "<%= project.category%>"></div> 
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12 box">
+
             <%= link_to project_path(project), class: "link-project-title" do %>
               <h3 class="project-title-index"><%=project.title%></h3>
             <% end %>
@@ -17,7 +18,7 @@
           </div> <!-- end of column 6 -->
           <div class=" progress-div col-md-6 col-sm-5 col-xs-12 col-xs-offset-1 col-sm-offset-0">
             <div class="row">
-              <div class="col-sm-12 col-xs-9">
+              <div class=" col-md-9 col-sm-12 col-xs-9">
                 <%= render 'shared/pb', project: project, show_progress: false  %>
               </div>
               <div class="col-md-2">
