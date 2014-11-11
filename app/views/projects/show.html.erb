@@ -1,36 +1,38 @@
-<% projects_link = link_to("Projects", projects_path)  %>
-<%=render 'shared/title', title:"#{projects_link} &raquo #{@project.title}".html_safe %>
-<div class="row">
-  <div class=" col-md-3 affix">
-    <small class ="created-at"> Created at <%=@project.created_at.strftime("%b %d, %Y")%></small>
-    <p class='project-description'><%= @project.description %></p>
-    <%= render 'shared/pb', project: @project, show_progress: true%>
+<div class="container">
+  <% projects_link = link_to("Projects", projects_path)  %>
+  <%=render 'shared/title', title:"#{projects_link} &raquo #{@project.title}".html_safe %>
+  <div class="row">
+    <div class=" col-md-3 affix">
+      <small class ="created-at"> Created at <%=@project.created_at.strftime("%b %d, %Y")%></small>
+      <p class='project-description'><%= @project.description %></p>
+      <%= render 'shared/pb', project: @project, show_progress: true%>
+      
+      <h3 class="project-title">Add Task</h3>
+      
+      <%= render 'tasks/form', project: @project, task: @task, is_remote: true, action: "Add Task" %> 
+      <form action="">
+        <input type="checkbox" id = "checkbox-hide" name="hide tasks" value="hiding">
+        <span id = 'checkbox-label'>Hide completed tasks </span> 
+      </form>
+    </div> <!-- end of side col (progress)  -->
     
-    <h3 class="project-title">Add Task</h3>
-    
-    <%= render 'tasks/form', project: @project, task: @task, is_remote: true, action: "Add Task" %> 
-    <form action="">
-      <input type="checkbox" id = "checkbox-hide" name="hide tasks" value="hiding">
-      <span id = 'checkbox-label'>Hide completed tasks </span> 
-    </form>
-  </div> <!-- end of header row (title & progress)  -->
-  
-  <div class = "col-md-8 col-md-offset-4">
-    <%= render 'shared/errors', obj: @task %>
-    <table class="table">
-      <thead>
-          <tr>
-              <th width="10%">Status</th>
-              <th width="50%">Description</th>
-              <th width="15%">Created at</th>
-              <th width="15%">Deadline</th>
-              <th width="10%" >Actions</th>
-          </tr>
-      </thead>
-      <tbody id = 'task-table'>
-      <% @project.tasks.order(created_at: :desc).each do |task|  %>
-        <%= render 'tasks/task', task: task, project: @project %>
-      <% end %>
-    </table> <!-- end of task table -->
-  </div> <!-- end of tasks div -->
-</div> <!-- End of row  -->
+    <div class = "col-md-8 col-md-offset-4">
+      <%= render 'shared/errors', obj: @task %>
+      <table class="table">
+        <thead>
+            <tr>
+                <th width="10%">Status</th>
+                <th width="50%">Description</th>
+                <th width="15%">Created at</th>
+                <th width="15%">Deadline</th>
+                <th width="10%" >Actions</th>
+            </tr>
+        </thead>
+        <tbody id = 'task-table'>
+        <% @project.tasks.order(created_at: :desc).each do |task|  %>
+          <%= render 'tasks/task', task: task, project: @project %>
+        <% end %>
+      </table> <!-- end of task table -->
+    </div> <!-- end of tasks div -->
+  </div> <!-- End of row  -->
+</div>

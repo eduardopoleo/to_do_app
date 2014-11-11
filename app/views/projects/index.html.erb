@@ -1,16 +1,18 @@
+<div class="container">
+  <!--Remember to include container in the application  and erase from here-->
+  <%=render 'shared/title', title: 'Projects'  %>
 
-<!--Remember to include container in the application  and erase from here-->
-<%=render 'shared/title', title: 'Projects'  %>
+  <div class="row">
+    <div class = "col-md-6">
+          <i id ='new-project' class="fa fa-plus-square-o"> </i> <span id='new-project'></span>
+    </div>
+  </div> <!-- end of row -->
 
-<div class="row">
-  <div class = "col-md-6">
-        <i id ='new-project' class="fa fa-plus-square-o"> </i> <span id='new-project'></span>
+  <%= render 'form', obj: @project, display: 'hide-form', is_remote: true, action: "Create!"%>
+  <div id = 'project-table' >
+    <% @projects.each do |project| %>
+      <%= render 'project', project: project  %>
+    <%end%>
   </div>
-</div> <!-- end of row -->
-
-<%= render 'form', obj: @project, display: 'hide-form', is_remote: true, action: "Create!"%>
-<div id = 'project-table' >
-  <% @projects.each do |project| %>
-    <%= render 'project', project: project  %>
-  <%end%>
+  <%= render "layouts/footer"  %>
 </div>

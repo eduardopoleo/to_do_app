@@ -1,39 +1,12 @@
 
-<%=render 'shared/errors', obj:@user %>
-<div class="jumbotron">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h1>CheckThis out!</h1>
-        <p>Organize your projects, set your goals, get stuff done. Sing up now. It's quick and easy.</p>
-      </div>  
-      <div class="col-md-5">
-        <%= render 'users/form'  %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <!-- Example row of columns -->
-  <div class="row">
-    <div class="col-md-4">
-      <h2>Create Projects</h2>
-      <span class="glyphicon glyphicon-list-alt front-icon"></span>
-    </div>
-    <div class="col-md-4">
-      <h2>Add tasks</h2>
-      <span class="glyphicon glyphicon-th-list front-icon"></span>
-   </div>
-    <div class="col-md-4">
-      <h2>Get it done</h2>
-      <span class="glyphicon glyphicon-ok front-icon"></span>
+  <p class="lead"> Thanks for your interest!</p>
+    <div class="col-sm-4">
+      <%= render "form"  %>
     </div>
   </div>
 
-  <hr>
+<%= render "layouts/footer"  %>
 
-  <footer>
-    <p>&copy; Company 2014</p>
-  </footer>
-</div> <!-- /container -->
+
+

@@ -1,4 +1,11 @@
 
+.jumbotron{
+  margin-top:-2%;
+}
+#workflow-title{
+  margin-top: 0;
+  margin-bottom: 2%;
+}
 .my-container{
   position:relative;
   margin-bottom: 20px;
@@ -168,6 +175,9 @@
   @extend .project-description-index;
   margin-left: 0;
 }
+#test{
+  clear: both;
+}
 #checkbox-label{
   float:left;
   position: relative;
@@ -191,21 +201,12 @@
   font-size: 14px;
   line-height: 14px;
 }
-#new-task{
-  @extend #new-project
-}
-
-.backto-projects-link{
-  float:left;
-  position:relative;
-  top:50px;
-}
 /*end of show page styles*/
 
 /*navigation*/
 #nav-projects{
   font-size: 1.5em;
-  color:black;
+  color:blue;
   font-weight: bold
 }
 #nav-deadlines{
@@ -221,3 +222,32 @@
 
 
 /*end of navigation*/
+
+footer {
+  margin-top: 5%;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}

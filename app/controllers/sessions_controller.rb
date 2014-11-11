@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController 
   def new
     @user = User.new
-    render 'users/new'
+    if logged_in?
+      redirect_to projects_path
+    else
+      render 'login'
+    end
   end
 
   def create
@@ -19,7 +23,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:success] = 'You have successfully logged out'
     redirect_to login_path
   end
 end
