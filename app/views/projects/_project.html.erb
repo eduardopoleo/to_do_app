@@ -2,24 +2,34 @@
     <div class="my-container ">
        <div class = "<%= project.category%>"></div> 
         <div class="row">
-          <div class="col-md-5  box">
+          <div class="col-md-6 col-sm-6 col-xs-12 box">
             <%= link_to project_path(project), class: "link-project-title" do %>
               <h3 class="project-title-index"><%=project.title%></h3>
             <% end %>
             <small class ="created-at-index">Created at <%=project.created_at.strftime("%b %d, %Y")%></small>
             <p class = "project-description-index"><%= project.description%></p>
             
-              <%=link_to project_path(project) do %>
+              <%=link_to project_path(project), class: "hidden-xs" do %>
                 <button class = "btn link-to-tasks btn-default ">
                     &raquo View tasks
                 </button>
               <%end%>
-            
           </div> <!-- end of column 6 -->
-          <div class="col-md-6 correcting-height">
-            <%= render 'shared/pb', project: project, show_progress: false  %>
-            <h4 class='pending-tasks'><%= project.upcoming_deadlines.size%> Upcoming deadlines </h4>
-            <h4 class='pending-tasks'><%= project.pending_tasks_total%> Pending tasks </h4>
+          <div class=" progress-div col-md-6 col-sm-6 col-xs-12 col-xs-offset-1 col-md-offset-0">
+            <div class="row">
+              <div class="col-md-10 col-xs-9">
+                <%= render 'shared/pb', project: project, show_progress: false  %>
+              </div>
+              <div class="col-md-2">
+                <p class = "project-progress hidden-xs"><%= project.progress%> %</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="task-info col-ms-12x">
+                <h4 class='pending-tasks'><%= project.upcoming_deadlines.size%> Upcoming deadlines </h4>
+                <h4 class='pending-tasks'><%= project.pending_tasks_total%> Pending tasks </h4>
+              </div>
+            </div>
           </div> <!-- end of column 6-->
           <%= link_to edit_project_path(project), class: "edit-project" do %>
             <span class = 'glyphicon glyphicon-edit'></span>
@@ -27,8 +37,8 @@
           <%= link_to erase_project_path(project), method: 'patch', class: "erase-project", remote: true do %>
             <span class = 'glyphicon glyphicon-trash'></span>
           <%end%>
-
-          <p class = "project-progress"><%= project.progress%> %</p> 
+          
+           
         </div>
     </div>
 </div>

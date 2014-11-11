@@ -1,6 +1,6 @@
 
 .jumbotron{
-  margin-top:-5%;
+  margin-top:-4%;
 }
 #workflow-title{
   margin-top: 0;
@@ -73,6 +73,20 @@
 /*End of categories styling*/
 
 /*Style for the projects blocks in index*/
+@media only screen and (max-device-width: 480px) {
+  .progress-bar{
+    position:relative;
+    right:300px;
+  }
+}
+
+.progress-div{
+  padding-left: 25px;
+}
+.task-info{
+  padding-left: 3%;
+}
+
 .link-project-title:hover{
   text-decoration: none;
   
@@ -109,6 +123,7 @@
   margin-top: 10px;
 }
 
+
 .pb-percentage{
   color:black;
 }
@@ -125,9 +140,7 @@
   @extend .edit-project;
   right:1em;
 }
-.correcting-height{
-  height:8em;
-}
+
 .pending-tasks{
   font-family: ubuntu;
 }
@@ -140,6 +153,10 @@
 
 
 /*Style for project show page*/
+#hide-completed{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 .trash-icon{
   position:relative;
   left:30%;
@@ -177,18 +194,6 @@
 }
 #test{
   clear: both;
-}
-#checkbox-label{
-  float:left;
-  position: relative;
-  top: 1.2em;
-  font-size: 1.3em;
-}
-#checkbox-hide{
-  @extend #checkbox-label;
-  transform: scale(1.2);
-  position: relative;
-  right:3px;
 }
 
 #date{

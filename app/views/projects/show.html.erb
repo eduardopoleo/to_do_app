@@ -2,33 +2,39 @@
   <% projects_link = link_to("Projects", projects_path)  %>
   <%=render 'shared/title', title:"#{projects_link} &raquo #{@project.title}".html_safe %>
   <div class="row">
-    <div class=" col-md-3 affix">
+
+    <div class="col-md-4 col-sm-4 col-xs-12 ">
       <small class ="created-at"> Created at <%=@project.created_at.strftime("%b %d, %Y")%></small>
       <p class='project-description'><%= @project.description %></p>
-      <%= render 'shared/pb', project: @project, show_progress: true%>
+      <div class="progress">
+        <div id = "progressbar-<%=@project.id%>" class="progress-bar progress-bar-<%=bp_color(@project.progress)%>" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%=@project.progress%>%">  
+            <p id="progress-percentage" style="color:black; font-weight:bold;"><%= @project.progress%> %</p> 
+        </div>
+      </div>
+
       
       <h3 class="project-title">Add Task</h3>
       
       <%= render 'tasks/form', project: @project, task: @task, is_remote: true, action: "Add Task" %> 
-      <form action="">
-        <input type="checkbox" id = "checkbox-hide" name="hide tasks" value="hiding">
-        <span id = 'checkbox-label'>Hide completed tasks </span> 
+      <form id="hide-completed"action="">
+        <input type="checkbox" id="checkbox-hide" name="hide tasks" value="hiding">
+        <span >Hide completed tasks </span> 
       </form>
     </div> <!-- end of side col (progress)  -->
     
-    <div class = "col-md-8 col-md-offset-4">
+    <div class = "col-md-8 col-sm-8 col-xs-12">
       <%= render 'shared/errors', obj: @task %>
       <table class="table">
         <thead>
             <tr>
                 <th width="10%">Status</th>
                 <th width="50%">Description</th>
-                <th width="15%">Created at</th>
+                <th class = "hidden-xs" width="15%">Created at</th>
                 <th width="15%">Deadline</th>
                 <th width="10%" >Actions</th>
             </tr>
         </thead>
-        <tbody id = 'task-table'>
+        <tbody id="task-table" class="table-responsive">
         <% @project.tasks.order(created_at: :desc).each do |task|  %>
           <%= render 'tasks/task', task: task, project: @project %>
         <% end %>

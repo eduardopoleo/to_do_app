@@ -13,10 +13,6 @@ $(function() {
   $('#new-project').click(function(){
     $('#create-project-form').slideToggle();
   });
-  //toggle task form
-  $('#new-task').click(function(){
-    $('#create-task-form').slideToggle();
-  });
   // Info for the date picker
   $('#date').datepicker({ 
     showAnim: "fadeIn",
